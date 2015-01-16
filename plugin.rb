@@ -15,6 +15,7 @@ after_initialize do
   load File.expand_path("../lib/desk_case.rb", __FILE__)
   load File.expand_path("../lib/new_desk_case.rb", __FILE__)
   load File.expand_path("../lib/existing_desk_case.rb", __FILE__)
+  load File.expand_path("../lib/desk_customer.rb", __FILE__)
 
   Discourse::Application.routes.prepend do
     post 'desk/create_case' => 'desk#create_case'

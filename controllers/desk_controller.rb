@@ -2,6 +2,7 @@ class ::DeskController < ::ApplicationController
   require 'desk_api'
 
   def create_case
+    cust = DeskCustomer.new(params[:requester][:email])
     the_case = NewDeskCase.new(
       case_data: {
         type: 'email',
@@ -10,7 +11,7 @@ class ::DeskController < ::ApplicationController
         external_id: params[:external_id],
         _links: {
           customer: {
-            href: "/api/v2/customers/281987990",
+            href: "/api/v2/customers/#{cust.id}",
             class: "customer"
           }
         },
@@ -19,7 +20,7 @@ class ::DeskController < ::ApplicationController
           status: "received",
           subject: params[:post_title],
           body: nil,
-          from: "info@community.coinbase.com",
+          from: params[:requester][:email],
           to: "support@coinbase.com"
         }
       },
