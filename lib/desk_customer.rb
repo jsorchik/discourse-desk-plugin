@@ -1,5 +1,5 @@
 class DeskCustomer
-  def initialize(email)
+  def initialize(email = 'info@community.coinbase.com')
     @customer = DeskApi.customers.search(email: "#{email}").entries.first rescue nil
   end
 
