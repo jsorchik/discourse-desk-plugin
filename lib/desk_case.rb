@@ -19,18 +19,18 @@ class DeskCase
   end
 
   def text
-    return "View #{status.titleize} Desk Case"
+    "View #{status.titleize} Desk Case"
   end
 
   def title
     case status
-      when "new"      then "Case is New. "
-      when "open"     then "Case is Open. "
-      when "pending"  then "Case is Pending. "
-      when "resolved"   then "Case has been Resolved. "
-      when "closed"   then "Case has been Closed. "
-      else "Case status is unknown. "
-    end + "Click to view in Desk"
+    when 'new'        then 'Case is New. '
+    when 'open'       then 'Case is Open. '
+    when 'pending'    then 'Case is Pending. '
+    when 'resolved'   then 'Case has been Resolved. '
+    when 'closed'     then 'Case has been Closed. '
+    else 'Case status is unknown. '
+    end + 'Click to view in Desk'
   end
 
   def exists?

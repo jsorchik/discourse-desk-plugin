@@ -11,6 +11,6 @@ class NewDeskCase < DeskCase
 
   def format_comment
     body_to_text = Nokogiri::HTML(@html_comment).text
-    return "Link to forum topic:\n#{@url}\n\nComment:\n#{body_to_text}"
+    "Link to forum topic:\n#{@url}\n\nComment:\n#{body_to_text}"
   end
 end

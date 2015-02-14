@@ -4,6 +4,6 @@ class DeskCustomer
   end
 
   def id
-    @customer.id rescue '281987990' #fail back to support user ID
+    @customer.id rescue '281987990' # fail back to support user ID
   end
 end
