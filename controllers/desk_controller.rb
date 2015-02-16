@@ -2,7 +2,7 @@ class ::DeskController < ::ApplicationController
   require 'desk_api'
 
   def create_case
-    cust = DeskCustomer.new(params[:requester][:email])
+    cust = DeskCustomer.new(params)
     the_case = NewDeskCase.new(
       case_data: {
         type: 'email',
@@ -20,7 +20,7 @@ class ::DeskController < ::ApplicationController
           status: 'received',
           subject: params[:post_title],
           body: nil,
-          from: params[:requester][:email],
+          from: cust.email,
           to: 'support@coinbase.com'
         }
       },
