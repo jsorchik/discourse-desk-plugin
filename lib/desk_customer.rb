@@ -1,6 +1,10 @@
 class DeskCustomer
   def initialize(params)
-    @email = params[:requester][:email] ||= 'info@community.coinbase.com'
+    if params[:requester].present? && params[:requester][:email].present?
+      @email = params[:requester][:email]
+    else
+      @email = 'info@community.coinbase.com'
+    end
     @customer = DeskApi.customers.search(email: "#{email}").entries.first rescue nil
   end
 
