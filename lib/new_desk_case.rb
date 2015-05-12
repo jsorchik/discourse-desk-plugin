@@ -2,7 +2,7 @@ class NewDeskCase < DeskCase
   def initialize(params)
     super
     @url = params[:post_url]
-    @topic_title = params[:case_data][:subject]
+    @topic_title = params[:case_data][:subject].sub(/^\[Community\] /, '')
     @html_comment = params[:html_comment]
     @submitter_username = params[:submitter_username]
     params[:case_data][:message][:body] = format_comment

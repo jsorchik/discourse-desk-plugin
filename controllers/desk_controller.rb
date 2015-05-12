@@ -6,7 +6,7 @@ class ::DeskController < ::ApplicationController
       case_data: {
         type: 'email',
         labels: ['Community'],
-        subject: params[:topic_title],
+        subject: '[Community] ' + params[:topic_title],
         external_id: params[:external_id],
         _links: {
           customer: {
@@ -17,7 +17,7 @@ class ::DeskController < ::ApplicationController
         message: {
           direction: 'in',
           status: 'received',
-          subject: params[:topic_title],
+          subject: '[Community] ' + params[:topic_title],
           body: nil,
           from: 'contact@community.coinbase.com',
           to: 'community@coinbase.com'
