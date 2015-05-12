@@ -2,30 +2,30 @@ class ::DeskController < ::ApplicationController
   require 'desk_api'
 
   def create_case
-    cust = DeskCustomer.new(params)
     the_case = NewDeskCase.new(
       case_data: {
         type: 'email',
         labels: ['Community'],
-        subject: params[:post_title],
+        subject: params[:topic_title],
         external_id: params[:external_id],
         _links: {
           customer: {
-            href: "/api/v2/customers/#{cust.id}",
-            class: "customer"
+            href: '/api/v2/customers/305498525', # your id will be different
+            class: 'customer'
           }
         },
         message: {
           direction: 'in',
           status: 'received',
-          subject: params[:post_title],
+          subject: params[:topic_title],
           body: nil,
-          from: cust.email,
-          to: 'support@coinbase.com'
+          from: 'contact@community.coinbase.com',
+          to: 'community@coinbase.com'
         }
       },
       post_url: params[:post_url],
-      html_comment: params[:html_comment]
+      html_comment: params[:html_comment],
+      submitter_username: params[:submitter_username]
     )
 
     render_case_json(the_case)

@@ -1,5 +1,5 @@
 Discourse.DeskButton = Discourse.ButtonView.extend({
-  shouldRerender: Discourse.View.renderIfChanged('controller.deskCase.exists'),
+  rerenderTriggers: ['controller.deskCase.exists'],
 
   classNames: ['desk'],
   classNameBindings: ['controller.deskCase.css_class'],

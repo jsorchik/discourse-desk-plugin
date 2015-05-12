@@ -13,20 +13,18 @@ Discourse.TopicController.reopen({
           bodyAsHtml = post.cooked,
           createdAt = post.created_at,
           topicId = post.topic_id,
-          categoryId = post.topic.category_id,
           topicSlug = post.topic_slug,
-          collaboratorEmail = false,
-          requesterInfo = false
+          modEmail = false;
 
       var makeAjaxCall = function() {
-        if (collaboratorEmail && requesterInfo) {
+        if (modEmail) {
           return Discourse.ajax("/desk/create_case", {
             dataType: 'json',
-            data: { post_title: title,
+            data: { topic_title: title,
                     html_comment: bodyAsHtml,
                     created_at: createdAt,
-                    requester: requesterInfo,
-                    collaborator_email: collaboratorEmail,
+                    submitter_username: topicCreatorUsername,
+                    mod_email: modEmail,
                     external_id: topicSlug + topicId,
                     post_url: window.location.href },
             type: 'POST'
@@ -37,11 +35,7 @@ Discourse.TopicController.reopen({
       };
       
       Discourse.User.findByUsername(currentUser.get('username')).then(function (currentUser) {
-        collaboratorEmail = currentUser.get('email');
-      }).then(makeAjaxCall);
-
-      Discourse.User.findByUsername(topicCreatorUsername).then(function (topicCreator) {
-        requesterInfo = { name: topicCreator.get('name'), email: topicCreator.get('email')};
+        modEmail = currentUser.get('email');
       }).then(makeAjaxCall);
     },
 

@@ -1,6 +1,6 @@
 # name: desk
 # about: create and view status of desk.com case within each topic
-# version: 0.2
+# version: 0.3
 # authors: jsorchik. Forked from https://github.com/shivpkumar/Zendesk-Plugin
 
 gem 'addressable', '2.3.7', require: false
@@ -17,7 +17,6 @@ after_initialize do
   load File.expand_path('../lib/desk_case.rb', __FILE__)
   load File.expand_path('../lib/new_desk_case.rb', __FILE__)
   load File.expand_path('../lib/existing_desk_case.rb', __FILE__)
-  load File.expand_path('../lib/desk_customer.rb', __FILE__)
 
   Discourse::Application.routes.prepend do
     post 'desk/create_case' => 'desk#create_case'
