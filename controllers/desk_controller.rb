@@ -2,6 +2,7 @@ class ::DeskController < ::ApplicationController
   require 'desk_api'
 
   def create_case
+    return render nothing: true unless current_user && current_user.staff?
     the_case = NewDeskCase.new(
       case_data: {
         type: 'email',
