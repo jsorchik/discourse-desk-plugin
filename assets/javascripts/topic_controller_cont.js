@@ -25,7 +25,7 @@ Discourse.TopicController.reopen({
                     created_at: createdAt,
                     submitter_username: topicCreatorUsername,
                     mod_email: modEmail,
-                    external_id: topicSlug + topicId,
+                    external_id: "community-" + topicId,
                     post_url: window.location.href },
             type: 'POST'
           }).then(function (the_case) {
