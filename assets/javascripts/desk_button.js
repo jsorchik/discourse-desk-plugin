@@ -10,7 +10,7 @@ Discourse.DeskButton = Discourse.ButtonView.extend({
     if (this.get('controller.deskCase.exists')) {
       this.get('controller').send('redirectToDesk', this.get('controller.deskCase.url'));
     } else {
-      this.get('controller').send('sendToDesk', this.get('controller.postStream.posts'), this.get('controller.currentUser'), this.get('controller.postStream.firstLoadedPost.username'));
+      this.get('controller').send('sendToDesk', this.get('controller.model.postStream.posts'), this.get('controller.currentUser'));
     }
   },
 

@@ -25,8 +25,7 @@ class ::DeskController < ::ApplicationController
         }
       },
       post_url: params[:post_url],
-      html_comment: params[:html_comment],
-      submitter_username: params[:submitter_username]
+      html_comment: params[:html_comment]
     )
 
     render_case_json(the_case)

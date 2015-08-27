@@ -6,7 +6,7 @@ Discourse.TopicController.reopen({
   },
 
   actions: {
-    sendToDesk: function(posts, currentUser, topicCreatorUsername) {
+    sendToDesk: function(posts, currentUser) {
       var topicController = this,
           post = posts.shift(),
           title = post.topic.title,
@@ -23,7 +23,6 @@ Discourse.TopicController.reopen({
             data: { topic_title: title,
                     html_comment: bodyAsHtml,
                     created_at: createdAt,
-                    submitter_username: topicCreatorUsername,
                     mod_email: modEmail,
                     external_id: "community-" + topicId,
                     post_url: window.location.href },
