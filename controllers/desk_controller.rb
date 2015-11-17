@@ -11,7 +11,7 @@ class ::DeskController < ::ApplicationController
         external_id: params[:external_id],
         _links: {
           customer: {
-            href: '/api/v2/customers/374537029', # your id will be different
+            href: '/api/v2/customers/391578268', # your id will be different
             class: 'customer'
           }
         },
