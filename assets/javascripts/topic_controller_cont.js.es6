@@ -1,4 +1,9 @@
-Discourse.TopicController.reopen({
+import TopicController from 'discourse/controllers/topic';
+import Ajax from 'discourse/mixins/ajax';
+import User from 'discourse/models/user'
+
+
+TopicController.reopen({
   deskCase: {
     text: 'Create Desk Case',
     title: 'Click to create a new case in Desk',
@@ -18,7 +23,7 @@ Discourse.TopicController.reopen({
 
       var makeAjaxCall = function() {
         if (modEmail) {
-          return Discourse.ajax("/desk/create_case", {
+          return Ajax("/desk/create_case", {
             dataType: 'json',
             data: { topic_title: title,
                     html_comment: bodyAsHtml,
@@ -33,7 +38,7 @@ Discourse.TopicController.reopen({
         }
       };
       
-      Discourse.User.findByUsername(currentUser.get('username')).then(function (currentUser) {
+      User.findByUsername(currentUser.get('username')).then(function (currentUser) {
         modEmail = currentUser.get('email');
       }).then(makeAjaxCall);
     },
