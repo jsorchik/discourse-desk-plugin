@@ -1,4 +1,6 @@
-Discourse.TopicRoute.on("setupTopicController", function(event) {
+import TopicRoute from 'discourse/routes/topic';
+
+TopicRoute.on("setupTopicController", function(event) {
   Discourse.ajax("/desk/find_case", {
     dataType: 'json',
     data: { external_id: "community-" + event.currentModel.id },
