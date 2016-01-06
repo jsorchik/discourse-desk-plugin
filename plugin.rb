@@ -8,9 +8,9 @@ gem 'addressable', '2.3.7', require: false
 gem 'simple_oauth', '0.2.0'
 gem 'desk_api', '0.6.1'
 
-register_asset 'javascripts/topic_controller_cont.js'
-register_asset 'javascripts/topic_route_cont.js'
-register_asset 'javascripts/desk_button.js'
+register_asset 'javascripts/topic_controller_cont.js.es6'
+register_asset 'javascripts/topic_route_cont.js.es6'
+register_asset 'javascripts/discourse-desk-button.js.es6'
 register_asset 'stylesheets/buttons_cont.css.scss'
 
 after_initialize do
