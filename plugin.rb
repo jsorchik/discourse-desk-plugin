@@ -1,6 +1,6 @@
 # name: desk
 # about: create and view status of desk.com case within each topic
-# version: 0.3
+# version: 0.4
 # authors: Josh Sorchik. Forked from https://github.com/shivpkumar/Zendesk-Plugin
 # url: https://github.com/jsorchik/discourse-desk-plugin
 
